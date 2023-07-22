@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const composedPosts = require('../models/composeModel');
-const homeStartingContent ='Welcome to Blog Hub, the wacky wonderland where anyone can post about anything! Prepare to unleash your creativity, share your thoughts.';
+const homeStartingContent = 'Welcome to Blog Hub, the wacky wonderland where anyone can post about anything! Prepare to unleash your creativity, share your thoughts.';
 
 const POSTS_PER_PAGE = 3; // Number of blogs to show per page
 
@@ -27,6 +27,8 @@ router.get('/', async (req, res) => {
         posts: posts,
         currentPage: page,
         totalPages: totalPages,
+        showPrevious: page > 1, // Show Previous button if the current page is greater than 1
+        showNext: totalPosts > page * POSTS_PER_PAGE, // Show Next button if there are more posts to show on the next page
     });
 });
 
