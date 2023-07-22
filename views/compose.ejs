@@ -1,0 +1,36 @@
+<%- include("partials/header"); -%>
+
+    <div class="compose">
+        <h1>Compose</h1>
+        <form class="" action="/compose" method="post">
+            <div class="form-group">
+                <div class="g1">
+
+                    <h5>Title</h5>
+                    <input type="text" name="postTitle">
+                    <h5>Author Name</h5>
+                    <input type="text" name="authorName">
+                </div>
+                <h5>Content</h5>
+                <textarea id="postBody" name="postBody" placeholder="Note: You can resize text editor as per your preferences"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" name="button">Publish</button>
+        </form>
+    </div>
+
+    <!-- Include TinyMCE CDN link -->
+    <script src="https://cdn.tiny.cloud/1/<%=process.env.TinyMCE_API_Key%>/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <script>
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: "#postBody",
+            plugins: "advlist autolink lists link image charmap print preview anchor",
+            toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image",
+            // You can customize the toolbar options based on your preferences.
+            // Learn more about TinyMCE configuration options here: https://www.tiny.cloud/docs/configure/editor-appearance/
+        });
+    </script>
+
+    <%- include("partials/footer"); -%>

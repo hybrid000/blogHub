@@ -1,0 +1,33 @@
+<%- include("partials/header"); -%>
+
+    <div class="posts">
+        <h1>
+            <%= title %>
+        </h1>
+
+        <h5>
+            By: <%= author %>
+        </h5>
+
+        <!-- Render the content as is; TinyMCE generated the formatted content -->
+        <%- content %>
+
+        <hr>
+            <div class="buttons">
+                <div class="postdelete">
+                    <form action="/posts/delete/<%= postId %>" method="post">
+                        <button type="submit">
+                            <p> Delete this post </p> <i class="fa-solid fa-trash fa-xl"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="postedit">
+                    <form action="/edit/<%= postId %>" method="get">
+                        <button type="submit">
+                            <p> Edit this post </p> <i class="fa-solid fa-pencil fa-xl"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+    </div>
+    <%- include('partials/footer') -%>

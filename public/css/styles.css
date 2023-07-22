@@ -1,0 +1,378 @@
+/* Common styles for all screen sizes */
+* {
+
+    /* margin:0 2rem; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 0;
+    background-color: #dad7d7;
+}
+
+
+header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.navbar {
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5.1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    
+}
+
+.logo p {
+    color: #fff;
+    font-size: larger;
+    letter-spacing:.6pt; 
+    margin-left: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links li:first-child {
+    margin-left: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.container {
+    background-color: #fefafa;
+    min-height: 80vh;
+    margin: 0 5rem;
+    padding: 2rem
+}
+.hero {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+/* Sophisticated Text Styling */
+.hero p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #7e7c7c;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Dark Background */
+body {
+    background-color: #302d2d6c;
+}
+
+/* Subtle Box Shadow Effect */
+.hero {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blogs {
+    text-align: left;
+    padding: 10px;
+    border: none;
+
+}
+
+.blogs h3 {
+    margin: 1rem 0;
+    padding: 0 .5rem;
+}
+
+.blog-post {
+    margin-bottom: 30px;
+    border: 1px solid rgb(167, 166, 166);
+    border-radius: .5rem;
+    background-color: rgba(233, 229, 229, 0.327);
+    padding-bottom: 20px;
+    padding: 1rem 2rem;
+}
+
+.blog-post h2 {
+    font-size: 24px;
+    padding: .5rem 0;
+}
+
+.blog-post h5 {
+    padding: .5rem 0;
+}
+
+.blog-post p {
+    font-size: 16px;
+    color: #090000;
+    padding: .5rem 0;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+footer {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+.postss{
+    max-width:70%!important ;
+}
+
+.posts h1{
+    padding: .5rem 0;
+}
+
+.posts h5{
+    padding: .5rem 0;
+    color: #333;
+}
+.posts p {
+    padding: .5rem 0;
+    color: #333;
+
+}
+
+hr{
+    margin: 1rem 0;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: .5rem;
+    
+}
+.postdelete {
+
+    position: relative;
+    right: 0;
+}
+
+.postdelete button {
+    display: flex;
+    width: 10rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem;
+    border: 1px solid rgb(169, 168, 168);
+    border-radius: .2rem;
+    margin: 0.5rem 0;
+
+}
+
+.postdelete button p {
+    color: red;
+    padding: .1rem;
+}
+
+.postdelete:hover button {
+    cursor: pointer;
+    box-shadow: 1px 1px 2px red;
+}
+
+/* Define the bounce animation using @keyframes */
+@keyframes bounceAnimation {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Apply the bounce animation to the icon when the button is hovered */
+.postdelete:hover button i {
+    animation: bounceAnimation 1s ease-in-out;
+}
+
+.postedit {
+
+    position: relative;
+    right: 0;
+}
+
+.postedit button {
+display: flex;
+    width: 10rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem;
+    border: 1px solid rgb(169, 168, 168);
+    border-radius: .2rem;
+    margin: 0.5rem 0;
+
+}
+
+.postedit button p {
+    color: rgb(6, 175, 18);
+    padding: .1rem;
+}
+
+.postedit:hover button {
+    cursor: pointer;
+    box-shadow: 1px 1px 2px edit
+}
+
+.postedit:hover button {
+    cursor: pointer;
+    box-shadow: 1px 1px 2px rgb(6, 175, 18);
+}
+
+.postedit:hover button i {
+    animation: bounceAnimation 1s ease-in-out;
+}
+
+/* Responsive styles using media queries */
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .blog-post h2 {
+        font-size: 20px;
+    }
+
+    .blog-post p {
+        font-size: 14px;
+    }
+}
+
+
+
+/* Compose Page Styling */
+.compose {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.compose h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333333;
+}
+
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #0d0e0e;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    
+    color: #fefafa;
+    cursor: pointer;
+        box-shadow: 1px 3.5px 2px rgb(138, 196, 230);
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+#discardBtn, #saveBtn{
+    width: 48%;
+}
+
+#saveBtn{
+    background-color: rgb(2, 77, 2);
+}
+
+#discardBtn{
+    background-color: rgb(101, 2, 2);
+}

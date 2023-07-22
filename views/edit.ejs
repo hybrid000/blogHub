@@ -1,0 +1,53 @@
+<%- include("partials/header"); -%>
+    <div class="compose">
+
+        <h1>Edit</h1>
+
+        <form class="" action="/edit/<%=postId  %>" method="post">
+            <div class="form-group">
+                <h5>Title</h5>
+                <input type="text" name="postTitle" value="<%= title %>">
+                <h5>Author Name</h5>
+                <input type="text" name="authorName" value="<%= author %>">
+                <h5>Content</h5>
+                <textarea id="postBody" name="postBody"><%= content %></textarea>
+            </div>
+            <div class="buttons">
+
+                <button class="btn btn-primary" id="saveBtn" submit" name="saveButton">
+                    <p>Save Changes</p>
+                </button>
+
+
+                <button class="btn btn-primary" id= "discardBtn" type="submit" name="discardButton">
+                    <p>Discard Changes</p> 
+                </button>
+
+
+
+
+
+            </div>
+        </form>
+
+
+
+    </div>
+
+
+    <!-- Include TinyMCE CDN link -->
+    <script src="https://cdn.tiny.cloud/1/<%=process.env.TinyMCE_API_Key%>/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <script>
+        // Initialize TinyMCE
+        tinymce.init({
+            selector: "#postBody",
+            plugins: "advlist autolink lists link image charmap print preview anchor",
+            toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image",
+            // You can customize the toolbar options based on your preferences.
+            // Learn more about TinyMCE configuration options here: https://www.tiny.cloud/docs/configure/editor-appearance/
+        });
+    </script>
+
+    <%- include("partials/footer"); -%>
