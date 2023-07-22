@@ -1,7 +1,6 @@
-/* Common styles for all screen sizes */
+
 * {
 
-    /* margin:0 2rem; */
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -38,13 +37,13 @@ header {
 
 .logo img {
     width: 40px;
-    
+
 }
 
 .logo p {
     color: #fff;
     font-size: larger;
-    letter-spacing:.6pt; 
+    letter-spacing: .6pt;
     margin-left: 5px;
 }
 
@@ -72,6 +71,7 @@ header {
     margin: 0 5rem;
     padding: 2rem
 }
+
 .hero {
     text-align: center;
     padding: 10px 0;
@@ -82,7 +82,6 @@ header {
     margin-bottom: 20px;
 }
 
-/* Sophisticated Text Styling */
 .hero p {
     font-size: 24px;
     font-weight: bold;
@@ -95,14 +94,16 @@ header {
     padding: 20px;
 }
 
-/* Dark Background */
 body {
     background-color: #302d2d6c;
 }
 
-/* Subtle Box Shadow Effect */
 .hero {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+    margin-top: 1rem;
 }
 
 .blogs {
@@ -158,18 +159,34 @@ footer {
     text-align: center;
     padding: 20px;
 }
-.postss{
-    max-width:70%!important ;
+
+.no-posts-message {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+    color: #333;
+    
 }
 
-.posts h1{
+.no-posts-message a {
+    text-decoration: none;
+    color: #007bff;
+    padding-top: 50px;
+}
+
+.postss {
+    max-width: 70% !important;
+}
+
+.posts h1 {
     padding: .5rem 0;
 }
 
-.posts h5{
+.posts h5 {
     padding: .5rem 0;
     color: #333;
 }
+
 .posts p {
     padding: .5rem 0;
     color: #333;
@@ -195,17 +212,14 @@ footer {
     font-size: 14px;
     cursor: pointer;
     width: 100px;
-    /* Adjust this width as needed */
     text-align: center;
 }
 
-/* Styles for the Previous button */
 .previous-button {
     background-color: #007bff;
     color: white;
 }
 
-/* Styles for the Next button */
 .next-button {
     background-color: #28a745;
     color: white;
@@ -218,16 +232,17 @@ a.disabled {
     cursor: not-allowed;
 }
 
-hr{
+hr {
     margin: 1rem 0;
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: space-between;
     margin-top: .5rem;
-    
+
 }
+
 .postdelete {
 
     position: relative;
@@ -276,7 +291,6 @@ hr{
     }
 }
 
-/* Apply the bounce animation to the icon when the button is hovered */
 .postdelete:hover button i {
     animation: bounceAnimation 1s ease-in-out;
 }
@@ -288,7 +302,7 @@ hr{
 }
 
 .postedit button {
-display: flex;
+    display: flex;
     width: 10rem;
     align-items: center;
     justify-content: space-between;
@@ -318,28 +332,7 @@ display: flex;
     animation: bounceAnimation 1s ease-in-out;
 }
 
-/* Responsive styles using media queries */
-@media screen and (max-width: 768px) {
-    .hero h1 {
-        font-size: 24px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .blog-post h2 {
-        font-size: 20px;
-    }
-
-    .blog-post p {
-        font-size: 14px;
-    }
-}
-
-
-
-/* Compose Page Styling */
+/* Compose/Edit Page Styling */
 .compose {
     max-width: 90%;
     margin: 0 auto;
@@ -397,24 +390,44 @@ display: flex;
 }
 
 .btn-primary:hover {
-    
+
     color: #fefafa;
     cursor: pointer;
-        box-shadow: 1px 3.5px 2px rgb(138, 196, 230);
+    box-shadow: 1px 3.5px 2px rgb(138, 196, 230);
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: space-between;
 }
-#discardBtn, #saveBtn{
+
+#discardBtn,
+#saveBtn {
     width: 48%;
 }
 
-#saveBtn{
+#saveBtn {
     background-color: rgb(2, 77, 2);
 }
 
-#discardBtn{
+#discardBtn {
     background-color: rgb(101, 2, 2);
+}
+
+@media screen and (max-width: 768px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .blog-post h2 {
+        font-size: 20px;
+    }
+
+    .blog-post p {
+        font-size: 14px;
+    }
 }
