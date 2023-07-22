@@ -2,13 +2,21 @@ const express = require('express');
 const router = express.Router();
 const composedPosts = require('../models/composeModel');
 const homeStartingContent = 'Welcome to Blog Hub, the wacky wonderland where anyone can post about anything! Prepare to unleash your creativity, share your thoughts.';
+const cache = require('memory-cache');
 
 const POSTS_PER_PAGE = 3; // Number of blogs to show per page
 
 router.get('/', async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1; // Get the current page number from the query parameter
-        const totalPosts = await composedPosts.countDocuments({}); // Get the total number of blog posts
+
+        // Check if the totalPosts count is cached
+        let totalPosts = cache.get('totalPosts');
+        if (!totalPosts) {
+            // If not cached, fetch the total number of blog posts and cache it for 10 minutes
+            totalPosts = await composedPosts.countDocuments({});
+            cache.put('totalPosts', totalPosts, 10 * 60 * 1000); // 10 minutes
+        }
 
         // Calculate the total number of pages based on the number of posts and posts per page
         const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
