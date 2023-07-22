@@ -7,10 +7,11 @@
         </p>
     </div>
 
+
     <section class="blogs">
         <h3>READ THE LATEST BLOGS:</h3>
-        <% posts.forEach(item=> { %>
-            <!-- Your blog posts will be dynamically added here -->
+
+        <% posts.forEach((item)=> { %>
             <div class="blog-post">
                 <h2>
                     <%= item.title %>
@@ -30,9 +31,21 @@
                                 <a href="/posts/<%= item._id %>" class="read-more">Read More</a>
                         </p>
             </div>
-            <% }); %>
+        <% }); %>
+
+
+                <!-- Pagination buttons -->
+    <div class="pagination">
+        <% if (currentPage> 1) { %>
+            <a href="/?page=<%= currentPage - 1 %>" class="pagination-button previous-button">Previous</a>
+            <% } %>
+    
+                <% if (currentPage < totalPages) { %>
+                    <a href="/?page=<%= currentPage + 1 %>" class="pagination-button next-button">Next</a>
+                    <% } %>
+    </div>
+
+
     </section>
-
-
 
     <%- include('partials/footer') -%>
