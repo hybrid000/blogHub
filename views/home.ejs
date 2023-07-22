@@ -35,16 +35,15 @@
 
 
                 <!-- Pagination buttons -->
-    <div class="pagination">
-        <% if (currentPage> 1) { %>
-            <a href="/?page=<%= currentPage - 1 %>" class="pagination-button previous-button">Previous</a>
-            <% } %>
-    
-                <% if (currentPage < totalPages) { %>
-                    <a href="/?page=<%= currentPage + 1 %>" class="pagination-button next-button">Next</a>
-                    <% } %>
-    </div>
-
+        <div class="pagination">
+            <% if (currentPage> 1) { %>
+                <a href="/?page=<%= currentPage - 1 %>" class="previous-button">Previous</a>
+                <% } %>
+        
+                    <% if (currentPage < totalPages) { %>
+                        <a href="/?page=<%= currentPage + 1 %>" class="next-button">Next</a>
+                        <% } %>
+        </div>
 
     </section>
 
