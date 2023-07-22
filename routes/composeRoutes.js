@@ -7,21 +7,15 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    try {
-        const post = new composedPosts({
-            title: req.body.postTitle,
-            author: req.body.authorName,
-            content: req.body.postBody,
-            originalContent: req.body.postBody, // Fix typo here: req.postBody -> req.body.postBody
-        });
+    const post = new composedPosts({
+        title: req.body.postTitle,
+        author: req.body.authorName,
+        content: req.body.postBody,
+        originalContent: req.body.postBody, // Fix typo here: req.postBody -> req.body.postBody
+    });
 
-        await post.save();
-        res.redirect('/');
-    } catch (err) {
-        // Handle the error gracefully
-        console.error('Error saving the post:', err);
-        res.status(500).send('Internal Server Error');
-    }
+    await post.save();
+    res.redirect('/');
 });
 
 module.exports = router;

@@ -37,11 +37,11 @@
                 <!-- Pagination buttons -->
         <div class="pagination">
             <% if (currentPage> 1) { %>
-                <a href="/?page=<%= currentPage - 1 %>" class="previous-button">Previous</a>
+                <a href="/?page=<%= currentPage - 1 %>" class="previous-button"><button>Previous</button></a>
                 <% } %>
         
                     <% if (currentPage < totalPages) { %>
-                        <a href="/?page=<%= currentPage + 1 %>" class="next-button">Next</a>
+                        <a href="/?page=<%= currentPage + 1 %>" class="next-button"><button>Next</button></a>
                         <% } %>
         </div>
 
