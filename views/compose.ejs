@@ -2,7 +2,7 @@
 
     <div class="compose">
         <h1>Compose</h1>
-        <form class="" action="/compose" method="post">
+        <form class="" action="/post" method="post">
             <div class="form-group">
                 <div class="g1">
 
@@ -17,15 +17,5 @@
             <button class="btn btn-primary" type="submit" name="button">Publish</button>
         </form>
     </div>
-    <script>
-        // Initialize TinyMCE
-        tinymce.init({
-            selector: "#postBody",
-            // plugins: "advlist autolink lists link image charmap print preview anchor",
-            toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent"
-            // You can customize the toolbar options based on your preferences.
-            // Learn more about TinyMCE configuration options here: https://www.tiny.cloud/docs/configure/editor-appearance/
-        });
-    </script>
 
     <%- include("partials/footer"); -%>

@@ -1,7 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const composedPosts = require('../models/composeModel');
+const axios = require('axios');
 
+// Creates a new blog
+router.post('/', async (req, res) => {
+    try {
+        const post = new composedPosts({
+            title: req.body.postTitle,
+            author: req.body.authorName,
+            content: req.body.postBody,
+            originalContent: req.body.postBody,
+        });
+
+        await post.save();
+        res.redirect('/');
+    } catch (err) {
+        // Handle the error gracefully
+        console.error('Error saving the post:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+// handles the get request to open a post up "/post/:postId"
 router.get('/:postId', async (req, res) => {
     try {
         const requestedPostId = req.params.postId;
@@ -22,7 +43,39 @@ router.get('/:postId', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+// edit updates
+router.post('/edit/:postId', async (req, res) => {
+    try {
+        const { saveButton, discardButton, postTitle, authorName, postBody } = req.body;
+        const saveButtonClicked = saveButton !== undefined;
+        const discardButtonClicked = discardButton !== undefined;
+        const requestedPostId = req.params.postId;
 
+        if (saveButtonClicked) {
+            const updatedTitle = postTitle;
+            const updatedAuthor = authorName;
+            const updatedContent = postBody;
+
+            await composedPosts.findByIdAndUpdate(requestedPostId, {
+                $set: {
+                    title: updatedTitle,
+                    content: updatedContent,
+                    author: updatedAuthor,
+                },
+            });
+        }
+
+        res.redirect(`/post/${requestedPostId}`);
+    } catch (err) {
+        // Handle the error gracefully
+        console.error('Error saving the edited post:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+
+// handles delete request and deletes the post "/post/:postId"
 router.post('/delete/:postId', async (req, res) => {
     try {
         const deletePostId = req.params.postId;
@@ -38,53 +91,7 @@ router.post('/delete/:postId', async (req, res) => {
     }
 });
 
-router.get('/edit/:postId', async (req, res) => {
-    try {
-        const editPostId = req.params.postId;
-        const post = await composedPosts.findOne({ _id: editPostId });
-        if (!post) {
-            // Handle the case when the requested post is not found
-            return res.status(404).send('Post not found');
-        }
-        res.render('edit', {
-            title: post.title,
-            content: post.content,
-            postId: post._id,
-            author: post.author,
-        });
-    } catch (err) {
-        // Handle the error gracefully
-        console.error('Error retrieving the post for editing:', err);
-        res.status(500).send('Internal Server Error');
-    }
-});
 
-router.post('/edit/:postId', async (req, res) => {
-    try {
-        const saveButtonClicked = req.body.saveButton !== undefined;
-        const discardButtonClicked = req.body.discardButton !== undefined;
-        const requestedPostId = req.params.postId;
-
-        if (saveButtonClicked) {
-            const updatedTitle = req.body.postTitle;
-            const updatedAuthor = req.body.authorName;
-            const updatedContent = req.body.postBody;
-
-            await composedPosts.findByIdAndUpdate(requestedPostId, {
-                $set: {
-                    title: updatedTitle,
-                    content: updatedContent,
-                    author: updatedAuthor,
-                },
-            });
-        }
-
-        res.redirect('/posts/' + requestedPostId);
-    } catch (err) {
-        // Handle the error gracefully
-        console.error('Error saving the edited post:', err);
-        res.status(500).send('Internal Server Error');
-    }
-});
 
 module.exports = router;
+

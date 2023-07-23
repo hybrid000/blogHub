@@ -9,10 +9,11 @@
 body {
     font-family: Arial, sans-serif;
     padding: 0;
-    background-color: #dad7d7;
+    /* background-color: #dad7d7; */
+    background-color: #302d2d6c;
 }
 
-
+/* header.ejs styling */
 header {
     position: sticky;
     top: 0;
@@ -72,6 +73,7 @@ header {
     padding: 2rem
 }
 
+/* home.ejs styling */
 .hero {
     text-align: center;
     padding: 10px 0;
@@ -94,9 +96,6 @@ header {
     padding: 20px;
 }
 
-body {
-    background-color: #302d2d6c;
-}
 
 .hero {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -152,14 +151,6 @@ body {
     border-radius: 4px;
 }
 
-footer {
-    width: 100%;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
 .no-posts-message {
     text-align: center;
     margin-top: 50px;
@@ -173,35 +164,13 @@ footer {
     color: #007bff;
     padding-top: 50px;
 }
-
-.postss {
-    max-width: 70% !important;
-}
-
-.posts h1 {
-    padding: .5rem 0;
-}
-
-.posts h5 {
-    padding: .5rem 0;
-    color: #333;
-}
-
-.posts p {
-    padding: .5rem 0;
-    color: #333;
-
-}
-
-/* CSS for the "Next" and "Previous" buttons */
-/* Center the buttons within the pagination container */
+/* General styles for buttons inside pagination  on home.ejs*/
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* General styles for buttons inside pagination */
 .pagination a {
     text-decoration: none;
     display: inline-block;
@@ -225,11 +194,31 @@ footer {
     color: white;
 }
 
-/* Disable the button link if it's not clickable */
 a.disabled {
     pointer-events: none;
     opacity: 0.6;
     cursor: not-allowed;
+}
+
+/* post.ejs: page that shows each post individually */
+
+.postss {
+    max-width: 70% !important;
+}
+
+.posts h1 {
+    padding: .5rem 0;
+}
+
+.posts h5 {
+    padding: .5rem 0;
+    color: #333;
+}
+
+.posts p {
+    padding: .5rem 0;
+    color: #333;
+
 }
 
 hr {
@@ -240,11 +229,8 @@ hr {
     display: flex;
     justify-content: space-between;
     margin-top: .5rem;
-
 }
-
 .postdelete {
-
     position: relative;
     right: 0;
 }
@@ -258,7 +244,6 @@ hr {
     border: 1px solid rgb(169, 168, 168);
     border-radius: .2rem;
     margin: 0.5rem 0;
-
 }
 
 .postdelete button p {
@@ -271,7 +256,7 @@ hr {
     box-shadow: 1px 1px 2px red;
 }
 
-/* Define the bounce animation using @keyframes */
+/* Define the bounce animation using @keyframes for the buttons on post.ejs*/
 @keyframes bounceAnimation {
 
     0%,
@@ -332,7 +317,7 @@ hr {
     animation: bounceAnimation 1s ease-in-out;
 }
 
-/* Compose/Edit Page Styling */
+/* Compose.ejs/Edit.ejs Page Styling */
 .compose {
     max-width: 90%;
     margin: 0 auto;
@@ -399,6 +384,7 @@ hr {
 .buttons {
     display: flex;
     justify-content: space-between;
+    margin-top: .5rem;
 }
 
 #discardBtn,
@@ -431,3 +417,13 @@ hr {
         font-size: 14px;
     }
 }
+
+/* footer.ejs */
+footer {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+

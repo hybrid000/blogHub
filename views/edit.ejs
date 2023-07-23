@@ -3,7 +3,7 @@
 
         <h1>Edit</h1>
 
-        <form class="" action="/edit/<%=postId  %>" method="post">
+        <form class="" action="/post/edit/<%=postId%>" method="post">
             <div class="form-group">
                 <h5>Title</h5>
                 <input type="text" name="postTitle" value="<%= title %>">
@@ -13,8 +13,7 @@
                 <textarea id="postBody" name="postBody"><%= content %></textarea>
             </div>
             <div class="buttons">
-
-                <button class="btn btn-primary" id="saveBtn" submit" name="saveButton">
+                <button class="btn btn-primary" id="saveBtn" type="submit" name="saveButton">
                     <p>Save Changes</p>
                 </button>
 
@@ -30,16 +29,5 @@
 
     </div>
 
-
-    <script>
-        // Initialize TinyMCE
-        tinymce.init({
-            selector: "#postBody",
-            // plugins: "advlist autolink lists link image charmap print preview anchor",
-            toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent"
-            // You can customize the toolbar options based on your preferences.
-            // Learn more about TinyMCE configuration options here: https://www.tiny.cloud/docs/configure/editor-appearance/
-        });
-    </script>
 
     <%- include("partials/footer"); -%>
