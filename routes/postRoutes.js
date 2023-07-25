@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const composedPosts = require('../models/composeModel');
-const axios = require('axios');
+
 
 // Creates a new blog
 router.post('/', async (req, res) => {
@@ -16,7 +16,6 @@ router.post('/', async (req, res) => {
         await post.save();
         res.redirect('/');
     } catch (err) {
-        // Handle the error gracefully
         console.error('Error saving the post:', err);
         res.status(500).send('Internal Server Error');
     }
@@ -38,7 +37,6 @@ router.get('/:postId', async (req, res) => {
             author: post.author,
         });
     } catch (err) {
-        // Handle the error gracefully
         console.error('Error retrieving the post:', err);
         res.status(500).send('Internal Server Error');
     }
@@ -53,14 +51,14 @@ router.delete('/:postId', async (req, res) => {
             '<script>alert("Post deleted successfully"); window.location.href = "/";</script>'
         );
     } catch (err) {
-        // Handle the error gracefully
         console.error('Error deleting the post:', err);
         res.status(500).send('Internal Server Error');
     }
 });
 
-// saves the edited blog / updates the blog
+// saves the edited blog / updates the blogZ
 router.put('/:postId', async (req, res) => {
+    console.log("PUT request received and route executed.");
     try {
         const requestedPostId = req.params.postId;
         const data = {
@@ -69,6 +67,8 @@ router.put('/:postId', async (req, res) => {
             postBody: req.body.postBody,
         };
 
+        console.log("Data to Update:", data);
+
         await composedPosts.findByIdAndUpdate(requestedPostId, {
             $set: {
                 title: data.postTitle,
@@ -76,10 +76,10 @@ router.put('/:postId', async (req, res) => {
                 author: data.authorName,
             },
         });
+        console.log("Post Updated Successfully.");
 
         res.redirect(`/post/${requestedPostId}`);
     } catch (err) {
-        // Handle the error gracefully
         console.error('Error saving the edited post:', err);
         res.status(500).send('Internal Server Error');
     }
@@ -87,34 +87,4 @@ router.put('/:postId', async (req, res) => {
 
 module.exports = router;
 
-
-// // saves the edited blog / updates the blog
-// router.put('/:postId', async (req, res) => {
-//     try {
-//         const { saveButton, discardButton, postTitle, authorName, postBody } = req.body;
-//         const saveButtonClicked = saveButton !== undefined;
-//         const discardButtonClicked = discardButton !== undefined;
-//         const requestedPostId = req.params.postId;
-
-//         if (saveButtonClicked) {
-//             const updatedTitle = postTitle;
-//             const updatedAuthor = authorName;
-//             const updatedContent = postBody;
-
-//             await composedPosts.findByIdAndUpdate(requestedPostId, {
-//                 $set: {
-//                     title: updatedTitle,
-//                     content: updatedContent,
-//                     author: updatedAuthor,
-//                 },
-//             });
-//         }
-
-//         res.redirect(`/post/${requestedPostId}`);
-//     } catch (err) {
-//         // Handle the error gracefully
-//         console.error('Error saving the edited post:', err);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
 

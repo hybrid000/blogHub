@@ -3,11 +3,9 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const dotenv = require("dotenv");
 
+
 dotenv.config();
 
-// Import the route files
-const mainRoutes = require('./routes/mainRoutes');
-const postRoutes = require('./routes/postRoutes');
 
 // Import the Mongoose schema file
 const composedPosts = require('./models/composeModel');
@@ -20,9 +18,11 @@ app.set('view engine', 'ejs');
 
 const PORT = process.env.PORT || 3000;
 
+
+
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
-
+  
 });
 
 // Add the MongoDB connection code here
@@ -40,6 +40,11 @@ const mongooseConnectDB = async () => {
 };
 
 mongooseConnectDB();
+
+
+// Import the route files
+const mainRoutes = require('./routes/mainRoutes');
+const postRoutes = require('./routes/postRoutes');
 
 // Use the route files
 app.use('/post', postRoutes);

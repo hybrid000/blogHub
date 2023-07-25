@@ -4,30 +4,30 @@
         <h1>
             <%= title %>
         </h1>
-
-        <h5>
-            By: <%= author %>
+        <h5>By: <%= author %>
         </h5>
-
-        <!-- Render the content as is; TinyMCE generated the formatted content -->
         <%- content %>
+            <hr>
+            <div class="post-edit-del">
 
-        <hr>
-            <div class="buttons">
                 <div class="postdelete">
-                    <form action="/post/<%= postId %>" method="delete">
+                    <form id="deleteForm" action="/post/<%= postId %>" method="DELETE">
                         <button type="submit">
-                            <p> Delete this post </p> <i class="fa-solid fa-trash fa-xl"></i>
+                            <p>Delete this post</p> <i class="fa-solid fa-trash fa-xl"></i>
                         </button>
                     </form>
                 </div>
+
                 <div class="postedit">
-                    <form action="/edit/<%= postId %>" method="get">
+                    <form action="/edit/<%= postId %>" method="GET">
                         <button type="submit">
-                            <p> Edit this post </p> <i class="fa-solid fa-pencil fa-xl"></i>
+                            <p>Edit this post</p> <i class="fa-solid fa-pencil fa-xl"></i>
                         </button>
                     </form>
                 </div>
+
             </div>
     </div>
+
+
     <%- include('partials/footer') -%>
