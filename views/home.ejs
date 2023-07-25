@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%- include('partials/header') -%>
 
     <div class="hero">
@@ -54,61 +53,4 @@
                             </div>
     </section>
 
-=======
-<%- include('partials/header') -%>
-
-    <div class="hero">
-        <h1>Welcome to BlogHub</h1>
-        <p>
-            <%= inputhome %>
-        </p>
-    </div>
-
-    <section class="blogs">
-        
-
-        <% if (posts.length===0) { %>
-            <!-- Display message when no posts are available -->
-           <div class="no-posts-message">
-            <h3 class="">Oops! Nothing here.</h3>
-            <a href="/compose">Compose Now</a> 
-            </div>
-            <% } else { %>
-                <h3>READ THE LATEST BLOGS:</h3>
-                <% posts.forEach((item)=> { %>
-                    <!-- Blog post content -->
-                    <div class="blog-post">
-                        <h2>
-                            <%= item.title %>
-                        </h2>
-                        <h5>
-                            By: <%= item.author %>
-                        </h5>
-                        <!-- Function to strip HTML tags -->
-                        <% function stripHTMLTags(text) { return text ? text.replace(/<[^>]+>/g, '') : ''; } %>
-                            <!-- Truncate the content to a specific number of characters, e.g., 220 characters -->
-                            <% const truncatedContent=stripHTMLTags(item.content).length> 220 ?
-                                stripHTMLTags(item.content).substring(0, 180) + "..." : stripHTMLTags(item.content); %>
-                                <p>
-                                    <%= truncatedContent %>
-                                        <!-- Link to the full post -->
-                                        <a href="/post/<%= item._id %>" class="read-more">Read More</a>
-                                </p>
-                    </div>
-                    <% }); %>
-                        <% } %>
-
-                            <!-- Pagination buttons -->
-                            <div class="pagination">
-                                <% if (showPrevious) { %>
-                                    <a href="/?page=<%= currentPage - 1 %>" class="previous-button">Previous</a>
-                                    <% } %>
-
-                                        <% if (showNext) { %>
-                                            <a href="/?page=<%= currentPage + 1 %>" class="next-button">Next</a>
-                                            <% } %>
-                            </div>
-    </section>
-
->>>>>>> 0a1eec35740d91ecc3ae0f7e6a9a31c0dd714b1e
     <%- include("partials/footer"); -%>
