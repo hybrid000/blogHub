@@ -32,4 +32,40 @@ router.get('/', async (req, res) => {
     });
 });
 
+// to get to compose blog page
+router.get('/compose', (req, res) => {
+    res.render('compose');
+});
+// To get to edit-blog page
+router.get('/edit/:postId', async (req, res) => {
+    try {
+        const editPostId = req.params.postId;
+        const post = await composedPosts.findOne({ _id: editPostId });
+        if (!post) {
+            return res.status(404).send('Post not found');
+        }
+        res.render('edit', {
+            title: post.title,
+            content: post.content,
+            postId: post._id,
+            author: post.author,
+        });
+    } catch (err) {
+        // Handle the error gracefully
+        console.error('Error retrieving the post for editing:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+router.get('/about', (req, res) => {
+    try {
+        res.render('about', { inputabout: aboutContent });
+    } catch (err) {
+        // Handle the error gracefully
+        console.error('Error rendering the about page:', err);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
 module.exports = router;

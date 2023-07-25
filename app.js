@@ -6,11 +6,11 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 // Import the route files
-const homeRoutes = require('./routes/homeRoutes');
-const editRoutes = require('./routes/editRoutes');
-const aboutRoutes = require('./routes/aboutRoutes');
-const composeRoutes = require('./routes/composeRoutes');
+const mainRoutes = require('./routes/mainRoutes');
 const postRoutes = require('./routes/postRoutes');
+
+// Import the Mongoose schema file
+const composedPosts = require('./models/composeModel');
 
 const app = express();
 
@@ -41,12 +41,6 @@ const mongooseConnectDB = async () => {
 
 mongooseConnectDB();
 
-// Import the Mongoose schema file
-const composedPosts = require('./models/composeModel');
-
 // Use the route files
-app.use('/', homeRoutes);
-app.use('/edit', editRoutes);
-app.use('/about', aboutRoutes);
-app.use('/compose', composeRoutes);
-app.use('/posts', postRoutes);
+app.use('/post', postRoutes);
+app.use('/', mainRoutes);

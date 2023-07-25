@@ -3,6 +3,47 @@
   <footer>
     <p>&copy; 2023 Blog Hub. All rights reserved.</p>
   </footer>
+   
+
+  <script>
+    // Initialize TinyMCE
+    tinymce.init({
+      selector: "#postBody",
+      toolbar: "undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent"
+    });
+
+    // Event listener for Discard button to go back to the previous page
+    document.getElementById('discardBtn').addEventListener('click', function () {
+      window.history.back();
+    });
+
+    // Event listener for form submission
+    document.getElementById('editForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const postId = "<%= postId %>";
+      const formElements = event.target.elements;
+      const data = {
+        postTitle: formElements.postTitle.value,
+        authorName: formElements.authorName.value,
+        postBody: tinymce.activeEditor.getContent(),
+      };
+
+      axios.put(`/post/${postId}`, data)
+        .then(response => {
+          // Handle successful response (e.g., show success message)
+          console.log(response.data);
+          // Optionally, redirect to another page after successful update
+          window.location.href = `/post/${postId}`;
+        })
+        .catch(error => {
+          // Handle error (e.g., show error message)
+          console.error(error);
+          // Optionally, show an error message to the user
+        });
+    });
+  </script>
+
   
 </body>
 </html>
