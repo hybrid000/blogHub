@@ -141,7 +141,7 @@ header {
 
 .read-more {
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 5px;
     background-color: #333;
     color: #fff;
     padding: 8px 16px;
@@ -498,6 +498,16 @@ footer {
         font-size: 12px;
         /* Decrease font size for blog post content */
     }
+
+        .read-more {
+            display: inline-block;
+            /* margin-top: 10px; */
+            background-color: #333;
+            color: #fff;
+            padding: 4px 8px;
+            text-decoration: none;
+            border-radius: 4px;
+        }
 
     footer p {
         font-size: smaller;
