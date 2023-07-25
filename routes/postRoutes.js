@@ -56,34 +56,41 @@ router.delete('/:postId', async (req, res) => {
     }
 });
 
-// saves the edited blog / updates the blogZ
+// saves the edited blog / updates the blogs
 router.put('/:postId', async (req, res) => {
     console.log("PUT request received and route executed.");
     try {
+        const saveButtonClicked = req.body.saveButton !== undefined;
+        const discardButtonClicked = req.body.discardButton !== undefined;
         const requestedPostId = req.params.postId;
-        const data = {
-            postTitle: req.body.postTitle,
-            authorName: req.body.authorName,
-            postBody: req.body.postBody,
-        };
+        if (saveButtonClicked) {
+            const data = {
+                postTitle: req.body.postTitle,
+                authorName: req.body.authorName,
+                postBody: req.body.postBody,
+            };
 
-        console.log("Data to Update:", data);
+            console.log("Data to Update:", data);
 
-        await composedPosts.findByIdAndUpdate(requestedPostId, {
-            $set: {
-                title: data.postTitle,
-                content: data.postBody,
-                author: data.authorName,
-            },
-        });
-        console.log("Post Updated Successfully.");
+            await composedPosts.findByIdAndUpdate(requestedPostId, {
+                $set: {
+                    title: data.postTitle,
+                    content: data.postBody,
+                    author: data.authorName,
+                },
+            });
 
+            console.log("Post Updated Successfully.");
+            
+        }
         res.redirect(`/post/${requestedPostId}`);
+
     } catch (err) {
         console.error('Error saving the edited post:', err);
         res.status(500).send('Internal Server Error');
     }
 });
+
 
 module.exports = router;
 

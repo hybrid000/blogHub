@@ -11,7 +11,7 @@
             <div class="post-edit-del">
 
                 <div class="postdelete">
-                    <form id="deleteForm" action="/post/<%= postId %>" method="DELETE">
+                    <form id="deleteForm" action="/post/<%= postId %>?_method=DELETE" method="POST">
                         <button type="submit">
                             <p>Delete this post</p> <i class="fa-solid fa-trash fa-xl"></i>
                         </button>
@@ -28,6 +28,5 @@
 
             </div>
     </div>
-
 
     <%- include('partials/footer') -%>
