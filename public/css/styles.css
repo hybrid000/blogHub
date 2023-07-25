@@ -68,7 +68,8 @@ header {
 .container {
     background-color: #fefafa;
     min-height: 80vh;
-    margin: 0 5rem;
+    width: 90%;
+    margin: 0 auto;
     padding: 2rem
 }
 
@@ -79,12 +80,11 @@ header {
 }
 
 .hero h1 {
-    font-size: 36px;
+    /* font-size: 36px; */
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 24px;
     font-weight: bold;
     color: #7e7c7c;
     text-align: center;
@@ -429,3 +429,57 @@ footer {
     padding: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        /* Arrange navbar items vertically */
+        align-items: center;
+    }
+
+    .nav-links {
+        margin-top: 20px;
+        /* Create space between logo and navigation links */
+    }
+
+    .logo img {
+        width: 30px;
+        /* Decrease logo size for smaller screens */
+    }
+
+    .logo p {
+        font-size: 14px;
+        /* Decrease font size for logo text */
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        /* Reset the left margin for list items */
+        margin-top: 10px;
+        /* Add space between navigation links */
+    }
+
+    .container {
+        padding: 1rem;
+        /* Adjusted padding for smaller screens */
+    }
+
+    .hero h1 {
+        font-size: 24px;
+        /* Decrease font size for hero heading */
+    }
+
+    .hero p {
+        font-size: 14px;
+        /* Decrease font size for hero paragraph */
+    }
+
+    .blog-post h2 {
+        font-size: 20px;
+        /* Decrease font size for blog post headings */
+    }
+
+    .blog-post p {
+        font-size: 14px;
+        /* Decrease font size for blog post content */
+    }
+}
