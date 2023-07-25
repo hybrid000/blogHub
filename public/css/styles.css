@@ -1,4 +1,3 @@
-
 * {
 
     box-sizing: border-box;
@@ -155,7 +154,7 @@ header {
     margin-top: 50px;
     font-size: 18px;
     color: #333;
-    
+
 }
 
 .no-posts-message a {
@@ -163,12 +162,13 @@ header {
     color: #007bff;
     padding-top: 50px;
 }
+
 /* General styles for buttons inside pagination  on home.ejs -*/
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 .pagination a {
@@ -216,12 +216,14 @@ a.disabled {
     padding: .5rem 0;
     color: #333;
 }
+
 .posts h5 {
     margin-left: .2rem;
     /* padding: .5rem 0; */
     padding-bottom: .5rem;
     color: #333;
 }
+
 .posts p {
     padding: .2rem 0;
     color: #333;
@@ -257,7 +259,7 @@ hr {
     padding: .1rem;
 }
 
-.postdelete:hover{
+.postdelete:hover {
     cursor: pointer;
     box-shadow: 1px 1px 2px red;
 }
@@ -437,7 +439,10 @@ footer {
     }
 
     .nav-links {
+        margin:0;
         margin-top: 20px;
+        justify-content: space-between;
+
         /* Create space between logo and navigation links */
     }
 
@@ -452,10 +457,16 @@ footer {
     }
 
     .nav-links li {
+        display: flex;
+        justify-content: space-between;
         margin-left: 0;
         /* Reset the left margin for list items */
         margin-top: 10px;
         /* Add space between navigation links */
+    }
+
+    .nav-links li:not(:first-child) {
+        margin-left: 12px;
     }
 
     .container {
@@ -465,7 +476,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: 20px;
+        font-size: 18px;
         /* Decrease font size for hero heading */
     }
 
@@ -474,16 +485,22 @@ footer {
         /* Decrease font size for hero paragraph */
     }
 
+    .blog-post{
+        padding: .2rem .9rem;
+    }
+
     .blog-post h2 {
-        font-size: 18px;
+        font-size: 15px;
+        
         /* Decrease font size for blog post headings */
     }
 
     .blog-post p {
-        font-size: 14px;
+        font-size: 12px;
         /* Decrease font size for blog post content */
     }
-    footer p{
+
+    footer p {
         font-size: smaller;
     }
 }
