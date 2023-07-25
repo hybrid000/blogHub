@@ -85,7 +85,7 @@ header {
 }
 
 .hero p {
-    font-weight: bold;
+    /* font-weight: bold; */
     color: #7e7c7c;
     text-align: center;
     text-transform: uppercase;
@@ -126,7 +126,7 @@ header {
 }
 
 .blog-post h2 {
-    font-size: 24px;
+    /* font-size: 24px; */
     padding: .5rem 0;
 }
 
@@ -135,7 +135,7 @@ header {
 }
 
 .blog-post p {
-    font-size: 16px;
+    /* font-size: 16px; */
     color: #090000;
     padding: .5rem 0;
 }
@@ -178,7 +178,7 @@ header {
     margin: 5px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 14px;
+    /* font-size: 14px; */
     cursor: pointer;
     width: 100px;
     text-align: center;
@@ -328,7 +328,7 @@ hr {
 }
 
 .compose h1 {
-    font-size: 32px;
+    /* font-size: 32px; */
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px;
@@ -340,7 +340,7 @@ hr {
 }
 
 .form-group h5 {
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight: bold;
     color: #555555;
     margin-bottom: 5px;
@@ -368,7 +368,7 @@ hr {
     padding: 12px;
     background-color: #0d0e0e;
     color: #fff;
-    font-size: 16px;
+    /* font-size: 16px; */
     font-weight: bold;
     text-align: center;
     border: none;
@@ -426,7 +426,7 @@ footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 0.5rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -481,5 +481,8 @@ footer {
     .blog-post p {
         font-size: 14px;
         /* Decrease font size for blog post content */
+    }
+    footer p{
+        font-size: smaller;
     }
 }
