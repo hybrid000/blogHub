@@ -2,14 +2,17 @@
     <div class="compose">
         <h1>Edit</h1>
 
-        <form class="" id="editForm" action="/post/<%= postId %>?_method=PUT" method="POST">
+        <form class="" action="/post/<%= postId %>?_method=PUT" method="POST">
+            <!-- <input type="hidden" name="_method" value="PUT"> -->
             <div class="form-group">
+                
                 <h5>Title</h5>
                 <input type="text" name="postTitle" value="<%= title %>">
                 <h5>Author Name</h5>
-                <input type="text" name="authorName" value="<%= author %>">
+                <input type="text" name="postAuthor" value="<%= author %>">
                 <h5>Content</h5>
-                <textarea id="postBody" name="postBody"><%= content %></textarea>
+                <input type="hidden" name="postCreatedDateAndTime" value="<%= createdDateAndTime  %>">
+                <textarea id="postBody" name="postContent"><%= content %></textarea>
             </div>
 
             <div class="edit-save-dicard">
@@ -17,11 +20,11 @@
                     <p>Save Changes</p>
                 </button>
 
-                <button class="btn btn-primary" id="discardBtn" type="submit">
+                <button class="btn btn-primary" id="discardBtn" type="submit" name="discardButton">
                     <p>Discard Changes</p>
                 </button>
             </div>
         </form>
     </div>
-
+    
     <%- include("partials/footer"); -%>

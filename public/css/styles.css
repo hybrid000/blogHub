@@ -216,7 +216,12 @@ a.disabled {
     padding: .5rem 0;
     color: #333;
 }
-
+.posts h5 {
+    margin-left: .2rem;
+    /* padding: .5rem 0; */
+    padding-bottom: .5rem;
+    color: #333;
+}
 .posts p {
     padding: .2rem 0;
     color: #333;

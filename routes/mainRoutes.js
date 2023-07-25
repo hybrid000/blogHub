@@ -36,7 +36,7 @@ router.get('/', async (req, res) => {
 router.get('/compose', (req, res) => {
     res.render('compose');
 });
-
+// to get about page
 router.get('/about', (req, res) => {
     try {
         res.render('about', { inputabout: aboutContent });
@@ -46,6 +46,26 @@ router.get('/about', (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+// to get editing page
+router.get("/edit/:postId", async (req, res) => {
+    try{
+    const requestedPostId = req.params.postId;
+    const post = await composedPosts.findById(requestedPostId);
+
+    res.render("edit", {
+        title: post.title,
+        author: post.author,
+        content: post.content,
+        postId: post._id,
+        createdDateAndTime:post.createdDateAndTime
+    });}
+    catch(err){
+        console.error('Error rendering the about page:', err);
+        res.status(500).send('Internal Server Error');
+    }
+    
+});
+
 
 
 module.exports = router;

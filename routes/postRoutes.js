@@ -1,33 +1,37 @@
 const express = require('express');
 const router = express.Router();
 const composedPosts = require('../models/composeModel');
+const methodOverride = require('method-override');
+
+router.use(methodOverride('_method'));
 
 
-// Creates a new blog
+// Creates a new blog --compose.ejs
 router.post('/', async (req, res) => {
     try {
         const post = new composedPosts({
             title: req.body.postTitle,
-            author: req.body.authorName,
+            author: req.body.postAuthor,
             content: req.body.postBody,
-            originalContent: req.body.postBody,
+            originalContent: req.body.postContent,
+            createdDateAndTime: new Date()
         });
 
         await post.save();
         res.redirect('/');
+
     } catch (err) {
         console.error('Error saving the post:', err);
         res.status(500).send('Internal Server Error');
     }
 });
 
-// handles the get request to open a post up "/post/:postId"
+// handles the get req to open a post up "/post/:postId"
 router.get('/:postId', async (req, res) => {
     try {
-        const requestedPostId = req.params.postId;
-        const post = await composedPosts.findOne({ _id: requestedPostId });
+        const postId = req.params.postId;
+        const post = await composedPosts.findOne({ _id: postId });
         if (!post) {
-            // Handle the case when the requested post is not found
             return res.status(404).send('Post not found');
         }
         res.render('post', {
@@ -35,6 +39,8 @@ router.get('/:postId', async (req, res) => {
             content: post.content,
             postId: post._id,
             author: post.author,
+            createdDateAndTime: post.createdDateAndTime,
+            updatedDateAndTime: post.updatedDateAndTime
         });
     } catch (err) {
         console.error('Error retrieving the post:', err);
@@ -45,8 +51,8 @@ router.get('/:postId', async (req, res) => {
 // handles delete request and deletes the post "/post/:postId"
 router.delete('/:postId', async (req, res) => {
     try {
-        const deletePostId = req.params.postId;
-        await composedPosts.findOneAndDelete({ _id: deletePostId });
+        const postId = req.params.postId;
+        await composedPosts.findOneAndDelete({ _id: postId });
         res.send(
             '<script>alert("Post deleted successfully"); window.location.href = "/";</script>'
         );
@@ -58,40 +64,35 @@ router.delete('/:postId', async (req, res) => {
 
 // saves the edited blog / updates the blogs
 router.put('/:postId', async (req, res) => {
-    console.log("PUT request received and route executed.");
     try {
+        const postId = req.params.postId;
         const saveButtonClicked = req.body.saveButton !== undefined;
         const discardButtonClicked = req.body.discardButton !== undefined;
-        const requestedPostId = req.params.postId;
         if (saveButtonClicked) {
             const data = {
-                postTitle: req.body.postTitle,
-                authorName: req.body.authorName,
-                postBody: req.body.postBody,
+                updatedTitle: req.body.postTitle,
+                updatedAuthor: req.body.postAuthor,
+                updatedContent: req.body.postContent,
+                UcreatedDateAndTime: req.body.postCreatedDateAndTime,
+                UupdatedDateAndTime: new Date()
             };
 
-            console.log("Data to Update:", data);
-
-            await composedPosts.findByIdAndUpdate(requestedPostId, {
+            await composedPosts.findByIdAndUpdate(postId, {
                 $set: {
-                    title: data.postTitle,
-                    content: data.postBody,
-                    author: data.authorName,
-                },
+                    title: data.updatedTitle,
+                    content: data.updatedContent,
+                    author: data.updatedAuthor,
+                    updatedDateAndTime: data.UupdatedDateAndTime,
+                    createdDateAndTime: data.UcreatedDateAndTime
+                }
             });
 
-            console.log("Post Updated Successfully.");
-            
         }
-        res.redirect(`/post/${requestedPostId}`);
-
+        res.redirect(`/post/${postId}`);
     } catch (err) {
         console.error('Error saving the edited post:', err);
         res.status(500).send('Internal Server Error');
     }
 });
 
-
 module.exports = router;
-
-

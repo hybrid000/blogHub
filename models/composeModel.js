@@ -5,6 +5,8 @@ const composeSchema = new mongoose.Schema({
     author: String,
     content: String,
     originalContent: String,
+    createdDateAndTime:String,
+    updatedDateAndTime: String
 });
 
 const composedPosts = mongoose.model('composeblog', composeSchema);

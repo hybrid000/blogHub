@@ -6,6 +6,15 @@
             </h2>
             <h4>By: <%= author %>
             </h4>
+            <h5>
+                Created on: <%= createdDateAndTime %>
+            </h5>
+            <% if (updatedDateAndTime) { %>
+            <h5>
+                Updated on: <%= updatedDateAndTime %>
+            </h5>
+
+            <% } %>
             <hr>
 
                 <p>
@@ -14,7 +23,7 @@
                 </p>
 
         </div>
-        <hr>
+        <!-- <hr> -->
         <div class="post-edit-del">
             
                 <form id="deleteForm" action="/post/<%= postId %>?_method=DELETE" method="POST">

@@ -17,6 +17,7 @@
     "express": "^4.16.3",
     "lodash": "^4.17.11",
     "memory-cache": "^0.2.0",
+    "method-override": "^3.0.0",
     "mongoose": "^7.3.4",
     "nodemon": "^2.0.22"
   }
