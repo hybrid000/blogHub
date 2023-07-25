@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 node_modules/
 Secret/
 package-lock.json
+=======
+node_modules/
+Secret/
+package-lock.json
+>>>>>>> 0a1eec35740d91ecc3ae0f7e6a9a31c0dd714b1e
 .env
