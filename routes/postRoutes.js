@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
         const post = new composedPosts({
             title: req.body.postTitle,
             author: req.body.postAuthor,
-            content: req.body.postBody,
+            content: req.body.postContent,
             originalContent: req.body.postContent,
             createdDateAndTime: new Date()
         });
