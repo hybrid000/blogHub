@@ -442,8 +442,6 @@ footer {
     .nav-links {
         margin:0;
         margin-top: 20px;
-        justify-content: space-between;
-
         /* Create space between logo and navigation links */
     }
 
@@ -467,7 +465,7 @@ footer {
     }
 
     .nav-links li:not(:first-child) {
-        margin-left: 12px;
+        margin-left: 16px;
     }
 
     .container {
