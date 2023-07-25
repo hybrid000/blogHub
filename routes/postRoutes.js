@@ -73,6 +73,7 @@ router.put('/:postId', async (req, res) => {
                 updatedTitle: req.body.postTitle,
                 updatedAuthor: req.body.postAuthor,
                 updatedContent: req.body.postContent,
+                UpdatedOriginalContent: req.body.postContent,
                 UcreatedDateAndTime: req.body.postCreatedDateAndTime,
                 UupdatedDateAndTime: new Date()
             };
@@ -82,6 +83,7 @@ router.put('/:postId', async (req, res) => {
                     title: data.updatedTitle,
                     content: data.updatedContent,
                     author: data.updatedAuthor,
+                    originalContent: data.UpdatedOriginalContent,
                     updatedDateAndTime: data.UupdatedDateAndTime,
                     createdDateAndTime: data.UcreatedDateAndTime
                 }
