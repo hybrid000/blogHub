@@ -436,6 +436,7 @@ footer {
         flex-direction: column;
         /* Arrange navbar items vertically */
         align-items: center;
+        padding: 1rem 1.5rem;
     }
 
     .nav-links {
