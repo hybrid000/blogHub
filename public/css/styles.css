@@ -163,11 +163,12 @@ header {
     color: #007bff;
     padding-top: 50px;
 }
-/* General styles for buttons inside pagination  on home.ejs ------------------------------------------------------*/
+/* General styles for buttons inside pagination  on home.ejs -*/
 .pagination {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .pagination a {
@@ -201,22 +202,27 @@ a.disabled {
 
 /* post.ejs: page that shows each post individually------------------------------------------- */
 
-.postss {
-    max-width: 70% !important;
+.posts {
+    max-width: 95% !important;
+    margin: auto;
 }
 
-.posts h1 {
+.posts h2 {
     padding: .5rem 0;
 }
 
-.posts h5 {
+.posts h4 {
+    margin-left: .2rem;
     padding: .5rem 0;
     color: #333;
 }
 
 .posts p {
-    padding: .5rem 0;
+    padding: .2rem 0;
     color: #333;
+    width: 98%;
+    margin: 0 auto;
+    text-align: justify;
 
 }
 
@@ -229,12 +235,8 @@ hr {
     justify-content: space-between;
     margin-top: .5rem;
 }
-.postdelete {
-    position: relative;
-    right: 0;
-}
 
-.postdelete button {
+.postdelete {
     display: flex;
     width: 10rem;
     align-items: center;
@@ -245,12 +247,12 @@ hr {
     margin: 0.5rem 0;
 }
 
-.postdelete button p {
+.postdelete p {
     color: red;
     padding: .1rem;
 }
 
-.postdelete:hover button {
+.postdelete:hover{
     cursor: pointer;
     box-shadow: 1px 1px 2px red;
 }
@@ -274,17 +276,13 @@ hr {
     }
 }
 
-.postdelete:hover button i {
+.postdelete:hover i {
     animation: bounceAnimation 1s ease-in-out;
 }
 
+
+
 .postedit {
-
-    position: relative;
-    right: 0;
-}
-
-.postedit button {
     display: flex;
     width: 10rem;
     align-items: center;
@@ -296,22 +294,22 @@ hr {
 
 }
 
-.postedit button p {
+.postedit p {
     color: rgb(6, 175, 18);
     padding: .1rem;
 }
 
-.postedit:hover button {
+.postedit:hover {
     cursor: pointer;
     box-shadow: 1px 1px 2px edit
 }
 
-.postedit:hover button {
+.postedit:hover {
     cursor: pointer;
     box-shadow: 1px 1px 2px rgb(6, 175, 18);
 }
 
-.postedit:hover button i {
+.postedit:hover i {
     animation: bounceAnimation 1s ease-in-out;
 }
 
