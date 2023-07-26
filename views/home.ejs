@@ -3,7 +3,7 @@
     <div class="hero">
         <h1>Welcome to BlogHub</h1>
         <p>
-            <%= inputhome %>
+            <%- inputhome %>
         </p>
     </div>
 
@@ -22,18 +22,18 @@
                     <!-- Blog post content -->
                     <div class="blog-post">
                         <h2>
-                            <%= item.title %>
+                            <%- item.title %>
                         </h2>
                         <h5>
-                            By: <%= item.author %>
+                            By: <%- item.author %>
                         </h5>
                         <!-- Function to strip HTML tags -->
                         <% function stripHTMLTags(text) { return text ? text.replace(/<[^>]+>/g, '') : ''; } %>
                             <!-- Truncate the content to a specific number of characters, e.g., 220 characters -->
                             <% const truncatedContent=stripHTMLTags(item.content).length> 180 ?
-                                stripHTMLTags(item.content).substring(0, 120) + "..." : stripHTMLTags(item.content); %>
+                                stripHTMLTags(item.content).substring(0, 180) + "........" : stripHTMLTags(item.content); %>
                                 <p>
-                                    <%= truncatedContent %>
+                                    <%- truncatedContent %>
                                     <br>
                                         <!-- Link to the full post -->
                                         <a href="/post/<%= item._id %>" class="read-more">Read More</a>

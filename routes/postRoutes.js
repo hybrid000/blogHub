@@ -5,6 +5,23 @@ const methodOverride = require('method-override');
 
 router.use(methodOverride('_method'));
 
+// Function to format date and time to desired format
+function formatDateAndTime(date) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    const dayOfWeek = days[date.getDay()];
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+
+    // Format the date and time string
+    const formattedDateAndTime = `${dayOfWeek}, ${month} ${day}, ${year} ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} IST`;
+
+    return formattedDateAndTime;
+}
 
 // Creates a new blog --compose.ejs
 router.post('/', async (req, res) => {
@@ -34,14 +51,19 @@ router.get('/:postId', async (req, res) => {
         if (!post) {
             return res.status(404).send('Post not found');
         }
+
+        const formattedCreatedDateAndTime = formatDateAndTime(post.createdDateAndTime);
+        const formattedUpdatedDateAndTime = formatDateAndTime(post.updatedDateAndTime);
+
         res.render('post', {
             title: post.title,
             content: post.content,
             postId: post._id,
             author: post.author,
-            createdDateAndTime: post.createdDateAndTime,
-            updatedDateAndTime: post.updatedDateAndTime
-        });
+            createdDateAndTime: formatDateAndTime(post.createdDateAndTime),
+            updatedDateAndTime: formatDateAndTime(post.updatedDateAndTime)       
+         });
+
     } catch (err) {
         console.error('Error retrieving the post:', err);
         res.status(500).send('Internal Server Error');

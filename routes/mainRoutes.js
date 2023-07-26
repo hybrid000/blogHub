@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const composedPosts = require('../models/composeModel');
-const homeStartingContent = 'Welcome to Blog Hub, the wacky wonderland where anyone can post about anything! Prepare to unleash your creativity, share your thoughts.';
-
+const homeStartingContent = 'Welcome to Blog Hub, a place where anyone can post about anything! <br> <br> Prepare to unleash your creativity & share your thoughts.';
+const aboutContent = "Discover a user-friendly blog website that empowers you to create, read, update, and delete blogs effortlessly. <br> Share your stories, passions, and insights with the world through a seamless and intuitive blogging experience."
 const POSTS_PER_PAGE = 3; // Number of blogs to show per page
 
 router.get('/', async (req, res) => {

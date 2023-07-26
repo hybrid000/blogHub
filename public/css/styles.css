@@ -200,6 +200,37 @@ a.disabled {
     cursor: not-allowed;
 }
 
+/* about.ejs */
+.about {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.about h1 {
+    /* font-size: 36px; */
+    margin-bottom: 20px;
+}
+
+.about p {
+    /* font-weight: bold; */
+    color: #7e7c7c;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    margin: 0;
+    padding: 20px;
+}
+
+
+.about {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.about h1 {
+    margin-top: 1rem;
+}
+
 /* post.ejs: page that shows each post individually------------------------------------------- */
 
 .posts {
@@ -214,14 +245,14 @@ a.disabled {
 .posts h4 {
     margin-left: .2rem;
     padding: .5rem 0;
-    color: #333;
+    color: #838282;
 }
 
 .posts h5 {
     margin-left: .2rem;
     /* padding: .5rem 0; */
     padding-bottom: .5rem;
-    color: #333;
+    color: #838282;
 }
 
 .posts p {
@@ -403,26 +434,6 @@ hr {
 #discardBtn {
     background-color: rgb(101, 2, 2);
 }
-
-@media screen and (max-width: 768px) {
-    .hero h1 {
-        font-size: 24px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .blog-post h2 {
-        font-size: 20px;
-    }
-
-    .blog-post p {
-        font-size: 14px;
-    }
-}
-
-/* footer.ejs */
 footer {
     width: 100%;
     background-color: #333;
@@ -430,7 +441,9 @@ footer {
     text-align: center;
     padding: 0.5rem;
 }
-
+/* media query................................................................... */
+/* .............................................................................. */
+/* .............................................................................. */
 @media screen and (max-width: 768px) {
     * {
         padding: 0;
@@ -442,7 +455,7 @@ footer {
         flex-direction: column;
         /* Arrange navbar items vertically */
         align-items: center;
-        padding: 1rem 1.5rem;
+        padding: 1.2rem 1.5rem;
     }
 
     .nav-links {
@@ -452,12 +465,12 @@ footer {
     }
 
     .logo img {
-        width: 30px;
+        width: 33px;
         /* Decrease logo size for smaller screens */
     }
 
     .logo p {
-        font-size: 14px;
+        font-size: 16px;
         /* Decrease font size for logo text */
     }
 
@@ -467,26 +480,43 @@ footer {
         margin-left: 0;
         /* Reset the left margin for list items */
         margin-top: 10px;
+        
         /* Add space between navigation links */
     }
-
+    
     .nav-links li:not(:first-child) {
         margin-left: 16px;
     }
+    
+    .nav-links li a{
+            font-size: large;
+
+        }
 
     .container {
         width: 100%;
         padding: .5rem;
+        padding-top: 1rem;
         /* Adjusted padding for smaller screens */
+    }
+
+    .hero{
+        align-items: center;
+        padding:1rem
     }
 
     .hero h1 {
         font-size: 20px;
         /* Decrease font size for hero heading */
+        margin:0;
+        padding: 0;
+        margin-bottom: .8rem;
     }
 
     .hero p {
         font-size: 14px;
+        margin: 0;
+            padding: 0;
         /* Decrease font size for hero paragraph */
     }
 
@@ -585,6 +615,26 @@ footer {
         cursor: not-allowed;
     }
 
+    /* about---------------------------------------------------------- */
+        .about {
+            align-items: center;
+            padding: 1rem
+        }
+    
+        .about h1 {
+            font-size: 20px;
+            /* Decrease font size for hero heading */
+            margin: 0;
+            padding: 0;
+            margin-bottom: .8rem;
+        }
+    
+        .about p {
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            /* Decrease font size for hero paragraph */
+        }
     /* post.ejs: page that shows each post individually------------------------------------------- */
 
     .posts {
