@@ -30,10 +30,11 @@
                         <!-- Function to strip HTML tags -->
                         <% function stripHTMLTags(text) { return text ? text.replace(/<[^>]+>/g, '') : ''; } %>
                             <!-- Truncate the content to a specific number of characters, e.g., 220 characters -->
-                            <% const truncatedContent=stripHTMLTags(item.content).length> 220 ?
-                                stripHTMLTags(item.content).substring(0, 180) + "..." : stripHTMLTags(item.content); %>
+                            <% const truncatedContent=stripHTMLTags(item.content).length> 180 ?
+                                stripHTMLTags(item.content).substring(0, 120) + "..." : stripHTMLTags(item.content); %>
                                 <p>
                                     <%= truncatedContent %>
+                                    <br>
                                         <!-- Link to the full post -->
                                         <a href="/post/<%= item._id %>" class="read-more">Read More</a>
                                 </p>

@@ -26,6 +26,11 @@
         <!-- <hr> -->
         <div class="post-edit-del">
             
+            <form action="/edit/<%= postId %>" method="GET">
+                <button type="submit" class="postedit">
+                    <p>Edit this post</p> <i class="fa-solid fa-pencil fa-xl"></i>
+                </button>
+            </form>
                 <form id="deleteForm" action="/post/<%= postId %>?_method=DELETE" method="POST">
                     <button type="submit" class="postdelete">
                         <p>Delete this post</p> <i class="fa-solid fa-trash fa-xl"></i>
@@ -33,11 +38,6 @@
                 </form>
 
 
-                <form action="/edit/<%= postId %>" method="GET">
-                    <button type="submit" class="postedit">
-                        <p>Edit this post</p> <i class="fa-solid fa-pencil fa-xl"></i>
-                    </button>
-                </form>
 
         </div>
     </div>
