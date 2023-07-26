@@ -52,23 +52,21 @@ router.get('/:postId', async (req, res) => {
             return res.status(404).send('Post not found');
         }
 
-        const formattedCreatedDateAndTime = formatDateAndTime(post.createdDateAndTime);
-        const formattedUpdatedDateAndTime = formatDateAndTime(post.updatedDateAndTime);
-
         res.render('post', {
             title: post.title,
             content: post.content,
             postId: post._id,
             author: post.author,
-            createdDateAndTime: formatDateAndTime(post.createdDateAndTime),
-            updatedDateAndTime: formatDateAndTime(post.updatedDateAndTime)       
-         });
+            createdDateAndTime: post.createdDateAndTime ? formatDateAndTime(post.createdDateAndTime): null,
+            updatedDateAndTime: post.updatedDateAndTime ? formatDateAndTime(post.updatedDateAndTime) : null,
+        });
 
     } catch (err) {
         console.error('Error retrieving the post:', err);
         res.status(500).send('Internal Server Error');
     }
 });
+
 
 // handles delete request and deletes the post "/post/:postId"
 router.delete('/:postId', async (req, res) => {
